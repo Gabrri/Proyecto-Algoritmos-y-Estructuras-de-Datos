@@ -62,7 +62,8 @@ int subset(vector<string> A, vector<string> B)
         c++;
     }
   }
-  if(c ==A.size()){
+  int b = A.size();
+  if(c ==b){
     return 1;
   }else{
     return 0;
