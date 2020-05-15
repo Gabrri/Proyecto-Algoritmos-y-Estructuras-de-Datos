@@ -6,17 +6,17 @@
 
 class Pelicula{
 public:
-  Pelicula(string titulo, int año, string director, vector <string> actores, vector <string> generos);
+  Pelicula(string titulo, int año, string director, vector <string> actores, string genero);
   string getTitulo();
   int getAnho();
   string getDirector();
   vector <string> getActores();
-  vector <string> getGeneros();
+  string getGenero();
 
 private:
   int a;
-  string t, d, s;
-  vector <string> ac, g;
+  string t, d, s, g;
+  vector <string> ac;
 
 };
 
