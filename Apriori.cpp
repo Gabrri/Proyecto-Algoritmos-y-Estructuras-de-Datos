@@ -6,51 +6,21 @@ using namespace std;
 
 class Apriori
 {
-    int item[100][100],C2[100],L2[100][100];
-    int i,j,k,row,col;
+    vector<int> vectorAnhos;
+    int anho;
     vector<vector<vector<string>>> C;
     vector<vector<string>> FreqItemset;
 public:
-    void getdata();
-    void getCandidateSet();
+    void anhos();
     void getFrequentItemSet();
-    void prune();
-    void countItems();
-    void display();
+   
 };
-
-void Apriori::getdata()
-{
-    cout<<"Enter the rows and cols";
-    cin>> row >> col;
-    for(i=1;i<=row;i++){
-        for(j=1;j<=col;j++){
-            cin >> item[i][j];
-        }
+/*Esto se pone en la clase peliculas, y va metiendo los años a un vector
+void Apriori::anhos(){
+    if(anho == getAnho){
+        vectorAnhos.push_back(anho);
     }
-}
-
-void Apriori::getCandidateSet()
-{
-     int count=0;
-
-    for(i=1;i<=row;i++){
-        for(j=1;j<=col;j++){
-            count=0;
-            if(item[i][j]==1)
-            {
-                count++;
-                C2[j]+=count;
-            }
-        }
-    }
-    
-    
-    for(i=1;i<=col;i++)
-    {
-        cout << C2[i] << "\n";
-    }
-}
+}*/
 int subset(vector<string> A, vector<string> B)
 {
   int c=0;
@@ -85,24 +55,9 @@ void Apriori::getFrequentItemSet()
      }
  }
 }
-
-
-void Apriori::display()
-{
-    for(i=1;i<=row;i++){
-	  for(j=1;j<=col;j++){
-		cout<<"\t"<<item[i][j];
-		}
-	      cout<<"\n";
-	  }
-}
-
 int main()
 {
     Apriori a;
-    a.getdata();
-    a.display();
-    a.getCandidateSet();
     a.getFrequentItemSet();
     return 0;
 }
