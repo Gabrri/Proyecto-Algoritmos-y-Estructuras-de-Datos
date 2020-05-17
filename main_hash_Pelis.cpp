@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include "stdafx.h"
 #include "hashmap_Pelis.cpp"
 using namespace std;
 
@@ -10,29 +9,35 @@ int main() {
 
   HashMap<int> my_map;
 
-  ifstream lectura;
-    lectura.open("BaseDeDatos_Peliculas.xlsx",ios::in);
-    string mystrings[200]={};
-    while (lectura.good())
-    {
-      for(int i = 1; i < 201; i++){
-        getline(lectura,mystrings[i]);
-        my_map.insert(i,mystrings[i]);
+    string movies[400]; // guardamos los datos de las peliculas en un array, y sabemos que cada 5 datos es una pelicula nueva
+    ifstream lectura_Datos;
+    lectura_Datos.open("BaseDatos_Pelicula.txt",ios::in);
+    if(lectura_Datos.fail()){
+      cout << "ERROr" << endl;
+    }
+    while(!lectura_Datos.eof()){
+      for(int i = 1; i < 400; i++){
+        getline(lectura_Datos,instruc[i]);
       }
     }
+    // insertamos las peliculas al mapa
+    for(int i = 0; i < 400; i++){
+      my_map.insert(i,movies[i]);
+    }
+
     lectura.close();
 
   // leer el archivo que dice los datos que se quieren buscar
   string instruc;
   ifstream file1;
-    lfile1.open("arch1.txt",ios::in); // archivo en modo lectura
+    file1.open("arch1.txt",ios::in); // archivo en modo lectura
     if(file1.fail()){
-      cout << '\n';
+      cout << "ERROR" << endl;
     }
     while(!file.eof()){
       getline(file1,instruc);
-      cout << my_map.get(instruct);
     }
+    cout << my_map.get(instruct);
     lectura.close();
 
 
