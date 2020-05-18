@@ -29,7 +29,7 @@ int main() {
     lectura_Datos.close();
 
   // leer el archivo que dice los datos que se quieren buscar
-    string instruc;
+    int instruc;
     ifstream file1;
     file1.open("arch1.txt",ios::in); // archivo en modo lectura
     if(file1.fail()){
