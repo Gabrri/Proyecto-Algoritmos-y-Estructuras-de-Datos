@@ -1,9 +1,10 @@
-#ifndef _HASHMAP_PELIS_CPP_
-#define _HASHMAP_PELIS_CPP_
+#ifndef HASHMAP_PELIS_CPP
+#define HASHMAP_PELIS_CPP
 
 #include "hashmap_P.hpp"
 #include<string>
 #include<vector>
+#include <cmath>
 // Usamos la clase hashmap dada por el profesor adaptada a nuestro obejtivo
 
 // constructor
@@ -18,7 +19,7 @@ HashMap<VT,KT>::HashMap() {
 template <typename VT, typename KT>
 void HashMap<VT,KT>::clear() {
   KeyValueNode<VT,KT> *cursor;
-  for(int i = 0; i < table_size; ++i){
+  for(int i = 0; i < table_size; + +i){
     cursor = table[i];
     while(table[i] != nullptr){
       cursor = cursor->next;
@@ -47,7 +48,7 @@ int HashMap<VT,KT>::hash_fun(KT key) {
   for(int i=0;i < 200;i++){
     count2+=1;
     key = index;
-    index = numprim[i]^count2;
+    index = pow(numprim[i],count2);
     if(count2 == 5){
       count2=0;
     }
@@ -108,11 +109,42 @@ void HashMap<VT,KT>::insert(KT key, VT value) {
 // los elementos relacionados
 template <typename VT, typename KT>
 VT HashMap<VT,KT>::get(KT key ) {
+  vector<string> myvector;
   KeyValueNode<VT,KT> *cursor;
   int index = hash_fun(key);
   for(int i = 0; i < table_size; ++i){
-    cursor = table[i];
-    if(cursor->key == index)return cursor->value;
+    if(key==1){
+      while(cursor->next!=nullptr)
+      cursor = table[i];
+      if(cursor->key == pow(i,key)){
+        myvector.insert(cursor->value);
+        return cursor->value;
+        }
+    }else if(key == 2){
+      cursor = table[i];
+      if(cursor->key == pow(i,key)){
+        myvector.insert(cursor->value);
+        return cursor->value;
+        }
+    }else if(key == 3){
+      cursor = table[i];
+      if(cursor->key == pow(i,key)){
+        myvector.insert(cursor->value);
+        return cursor->value;
+        }
+    }else if(key == 4){
+      cursor = table[i];
+      if(cursor->key == pow(i,key)){
+        myvector.insert(cursor->value);
+        return cursor->value;
+        }
+    }else if(key == 5){
+      cursor = table[i];
+      if(cursor->key == pow(i,key)){
+        myvector.insert(cursor->value);
+        return cursor->value;
+        }
+    }
   }
   return 0;
 }
