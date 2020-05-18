@@ -23,7 +23,7 @@ int main() {
     }
     // insertamos las peliculas al mapa
     for(int i = 0; i < 400; i++){
-      my_map.insert(to_s(i),moies[i]);
+      my_map.insert(i,movies[i]);
     }
 
     lectura_Datos.close();
